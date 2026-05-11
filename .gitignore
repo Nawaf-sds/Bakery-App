@@ -1,3 +1,4 @@
+// This .gitignore file is for a React Native project using Expo. It ignores files and directories that are commonly generated during development and build processes, as well as sensitive files that should not be committed to version control.
 node_modules/
 .expo/
 dist/
@@ -22,3 +23,10 @@ expo-env.d.ts
 
 /ios 
 /android
+
+# =========================================
+# 🛑 حماية الملفات السرية ومجلدات الواجهة الخلفية
+# =========================================
+.env
+Back-end/.env
+Back-end/node_modules/
