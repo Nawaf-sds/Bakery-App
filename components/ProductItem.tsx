@@ -83,31 +83,28 @@
 //   price: { color: '#D2691E', fontSize: 15, fontWeight: 'bold', textAlign: 'right' },
 // });
 
-
-
-
-
+//ProductItem.tsx
 import React, { useRef } from 'react'; 
 import { View, Text, StyleSheet, Image, TouchableOpacity, Animated } from 'react-native'; 
 import { Ionicons } from '@expo/vector-icons'; 
 import { useRouter } from 'expo-router'; 
 
-const SERVER_URL = 'http://192.168.1.20:5000';
+const SERVER_URL = 'http://192.168.1.28:5000';
 
 const getImageUrl = (source?: any) => {
-  if (!source) return 'https://via.placeholder.com/400x200.png?text=No+Image';
+  if (!source) return 'http://via.placeholder.com/400x200.png?text=No+Image';
   let url = '';
   
   if (typeof source === 'string') url = source;
   else if (Array.isArray(source) && source.length > 0) url = source[0];
 
   if (!url || typeof url !== 'string' || url.trim() === '') {
-    return 'https://via.placeholder.com/400x200.png?text=No+Image';
+    return 'http://via.placeholder.com/400x200.png?text=No+Image';
   }
   
   url = url.replace(/\\/g, '/');
 
-  // 2️⃣ التصحيح الثاني: التحقق من كلا البروتوكولين لتجنب تكرار الروابط
+  // التحقق من البروتوكول لتجنب التكرار
   if (url.startsWith('http://') || url.startsWith('https://')) return url;
   
   const cleanPath = url.startsWith('/') ? url : `/${url}`;
@@ -137,7 +134,6 @@ const ProductItem = ({ item, onToggleWishlist }: any) => {
       onPress={() => router.push(`/product-details/${item._id}`)} 
       activeOpacity={0.9}
     >
-      {/* 🚨 التعديل هنا: تم إزالة defaultSource تماماً لكي تعمل الصورة */}
       <Image 
         source={{ uri: productImg }} 
         style={styles.image} 
@@ -162,10 +158,10 @@ const ProductItem = ({ item, onToggleWishlist }: any) => {
 export default ProductItem;
 
 const styles = StyleSheet.create({
-  card: { backgroundColor: '#fff', borderRadius: 16, overflow: 'hidden', elevation: 2, shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.05, shadowRadius: 3, marginBottom: 15 },
-  image: { width: '100%', height: 140, resizeMode: 'cover', backgroundColor: '#eee' },
-  info: { padding: 12 },
-  titleRow: { flexDirection: 'row-reverse', justifyContent: 'space-between', alignItems: 'center', marginBottom: 4 },
+  card: { backgroundColor: '#fff',marginTop: 22, borderRadius: 26, overflow: 'hidden', elevation: 10, shadowColor: '#000', shadowOffset: { width: 0, height: 1 }, shadowOpacity: 0.05, shadowRadius: 3, marginBottom: 15 },
+  image: { width: '100%', height: 220,  resizeMode: 'cover', backgroundColor: '#eee' },
+  info: { padding: 13 },
+  titleRow: { flexDirection: 'row-reverse', justifyContent: 'space-between', alignItems: 'center', marginBottom: 7 },
   name: { color: '#333', fontSize: 14, fontWeight: 'bold', textAlign: 'right', flex: 1, marginLeft: 10 },
   price: { color: '#D2691E', fontSize: 15, fontWeight: 'bold', textAlign: 'right' },
 });

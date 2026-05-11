@@ -11,8 +11,8 @@ const UserSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true,
     },
+   
     password: {
         type: String,
         required: true,
@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['user', 'admin'],
+        enum: ['user', 'admin','Employee'],
         default: 'user',
     },
     // ✅ إضافة حقل السلة (Cart)

@@ -48,10 +48,10 @@ const headerStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 23,
+    marginBottom: 3,
   },
   greeting: {
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: 'bold',
     color: '#fff',
   },
@@ -61,7 +61,7 @@ const headerStyles = StyleSheet.create({
     marginTop: 5,
   },
   profileImage: {
-    width: 45,
+    width: 50,
     height: 45,
     borderRadius: 22.5,
     borderWidth: 2,
@@ -71,16 +71,16 @@ const headerStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#fff',
-    borderRadius: 15,
+    borderRadius: 125,
     paddingHorizontal: 15,
     paddingVertical: 10,
   },
   searchIcon: {
-    marginRight: 10,
+    marginRight: 11, // ليتناسب مع اتجاه النص العربي (من اليمين لليسار)
   },
   searchInput: {
     flex: 1,
-    fontSize: 16,
+    fontSize: 14,
     color: '#333',
     textAlign: 'right', // ليتناسب مع اللغة العربية
   },

@@ -267,7 +267,7 @@ import apiClient from '@/libs/services/axiosClient';
 const { width } = Dimensions.get('window');
 
 // ⚠️ تأكد أن هذا العنوان صحيح
-const SERVER_URL = 'http://192.168.1.20:5000';
+const SERVER_URL = 'http://192.168.1.28:5000';
 
 const MyReviewsScreen = () => {
   const params = useLocalSearchParams();
@@ -319,7 +319,7 @@ const MyReviewsScreen = () => {
 
   if (url.startsWith('http')) return url;
   
-  const SERVER_URL = 'http://192.168.1.20:5000';
+  const SERVER_URL = 'http://192.168.1.28:5000';
   const cleanPath = url.startsWith('/') ? url : `/${url}`;
   
   // طباعة الرابط النهائي في الكونسول لنتأكد أنه سليم 100%

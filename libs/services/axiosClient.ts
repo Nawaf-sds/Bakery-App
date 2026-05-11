@@ -37,7 +37,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // بدلاً من الاعتماد على Constants التي قد تفشل، ضع الـ IP مباشرة
 // تأكد أن هذا الرقم هو نفسه الذي يظهر لك في ipconfig
 // ---------------------------------------------------------
-const API_URL = 'http://192.168.1.20:5000'; // استبدل هذا بالـ IP الصحيح لجهازك
+const API_URL = 'http://192.168.1.28:5000'; // استبدل هذا بالـ IP الصحيح لجهازك
 
 const apiClient = axios.create({
   baseURL: API_URL,
