@@ -8,9 +8,7 @@ const {
     deleteItemFromCart
 } = require('../controllers/cartController');
 
-// 💡 [التعديل الجذري لحل مشكلة 404]: 
-// دمجنا مسار العرض (GET) ومسار الإضافة (POST) في نفس الرابط الأساسي '/'
-// الآن تطبيق الجوال سيرسل طلب POST إلى '/api/cart' وسيستقبله السيرفر بنجاح!
+
 router.route('/')
     .get(protect, getCart)       // لجلب وعرض السلة
     .post(protect, addToCart);   // لإضافة منتج جديد للسلة
