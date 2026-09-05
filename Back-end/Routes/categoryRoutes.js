@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Category = require('../models/Category');
 
-// إنشاء تصنيف جديد
 router.post('/', async (req, res) => {
   try {
     const category = new Category(req.body);
@@ -13,7 +12,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// جلب جميع التصنيفات
 router.get('/', async (req, res) => {
   try {
     const categories = await Category.find();
@@ -23,7 +21,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// جلب تصنيف محدد بالـ ID
 router.get('/:id', async (req, res) => {
   try {
     const category = await Category.findById(req.params.id);
@@ -36,7 +33,5 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// تحديث تصنيف
-// يمكنك إضافة المزيد من المسارات هنا
 
 module.exports = router;
