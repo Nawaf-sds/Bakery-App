@@ -9,12 +9,12 @@ const {
     removeFromWishlist
 } = require('../controllers/wishlistController');
 
-// المسار الرئيسي لجلب وإضافة المنتجات
+
 router.route('/')
     .get(protect, getWishlist)
     .post(protect, addToWishlist);
 
-// مسار لحذف منتج معين
+
 router.route('/:productId').delete(protect, removeFromWishlist);
 
 module.exports = router;
