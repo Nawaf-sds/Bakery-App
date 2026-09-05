@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const Coupon = require('../models/Coupon');
 
-// إنشاء كوبون جديد
 router.post('/', async (req, res) => {
   try {
     const coupon = new Coupon(req.body);
@@ -13,7 +12,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// جلب جميع الكوبونات
 router.get('/', async (req, res) => {
   try {
     const coupons = await Coupon.find();
@@ -23,7 +21,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// جلب كوبون محدد بالـ ID
 router.get('/:id', async (req, res) => {
   try {
     const coupon = await Coupon.findById(req.params.id);
@@ -36,10 +33,5 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// تحديث كوبون
-// يمكنك إضافة المزيد من المسارات هنا
-
-// تحديث كوبون
-// يمكنك إضافة المزيد من المسارات هنا
 
 module.exports = router;
