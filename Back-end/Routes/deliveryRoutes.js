@@ -36,7 +36,5 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// تحديث عملية توصيل
-// يمكنك إضافة المزيد من المسارات هنا
 
 module.exports = router;
