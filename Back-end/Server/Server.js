@@ -1,15 +1,5 @@
-// 🟢 إعدادات السيرفر باستخدام Express.js
-//    npm start
 
-//دخول إلى مجلد السيرفر
-//    cd Back-end
-// cd Back-end/Server
 
-// ------------------------------
-// Server.js (Clean & Working & RESRTful & Secure & Optimized)
-// هذا هو الملف الرئيسي للسيرفر، حيث يتم إعداد Express، تحميل Middlewares، تعريف Routes، والاتصال بقاعدة البيانات.
-// تم تحسينه ليكون أكثر أمانًا، تنظيمًا، واحترافية، مع إضافة حماية ضد MongoDB injection، وتحسينات في الأداء والأمان.
-// ------------------------------
 
 // 🟢 تحميل المكتبات
 const express = require('express');
@@ -80,10 +70,6 @@ const apiLimiter = rateLimit({
   standardHeaders: true,
   legacyHeaders: false,
 });
-
-// 🟢 حماية بيانات الطلب من MongoDB query injection
-// هذه الدالة ستزيل أي مفتاح يبدأ بـ $ أو يحتوي على . من جسم الطلب، مما يمنع الهجمات الشائعة
-// يمكنك تعديلها لتناسب احتياجاتك، لكنها توفر حماية أساسية ضد هجمات MongoDB injection
 const sanitizeObject = (obj, req) => {
   if (!obj || typeof obj !== 'object') return;
   for (const key of Object.keys(obj)) {
@@ -107,11 +93,8 @@ app.use(requestSanitizer);
 connectDB();
 
 
-// تطبيق القاعدة الصارمة على مسارات المصادقة الحساسة
-app.use('/api/auth', authLimiter, authRoutes); // <-- تم إضافة القاعدة الصارمة هنا
-
-// تطبيق القاعدة المرنة على باقي المسارات العامة
-app.use('/api/upload', apiLimiter, uploadRoutes); // <-- تم إضافة القاعدة المرنة هنا
+app.use('/api/auth', authLimiter, authRoutes);  
+app.use('/api/upload', apiLimiter, uploadRoutes);  
 app.use('/api/users', apiLimiter, userRoutes);
 app.use('/api/orders', apiLimiter, orderRoutes);
 app.use('/api/cart', apiLimiter, cartRoutes);
@@ -129,14 +112,11 @@ app.use('/api/promotions', apiLimiter, promotionRoutes);
 
 
 
-// ✅ Middleware للأخطاء والتسجيل (يجب إضافتهم بعد الـ Routes)
 app.use(logger);
 app.use(notFound);
 app.use(errorHandler);
 
 
-// 🟢 تشغيل السيرفر
-// الشكل الصحيح (يستمع لكل الاتصالات على الشبكة)
 const PORT = 5000;
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server is running in development mode on port ${PORT}`);
