@@ -16,7 +16,6 @@ router.post('/register', registerUser);
 router.post('/login', loginUser);
 router.get('/verify', protect, verifyUser); 
 
-// ✅ الآن سيعمل هذا المسار بدون أخطاء
 router.post('/google', googleLogin); 
 
 module.exports = router;
